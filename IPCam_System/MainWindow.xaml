@@ -1,0 +1,539 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IPCam_System"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:WPF="clr-namespace:VisioForge.Controls.UI.WPF;assembly=VisioForge.Controls.UI" x:Class="IPCam_System.MainWindow"
+        mc:Ignorable="d"
+        Title="IPCam_System" MinHeight="600" MinWidth="1000" WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ContentCams">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="MainGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ContentVideoGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ContentCams">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="MainGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ContentVideoGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
+            <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid x:Name="GridBackground" Background="#55313131" Opacity="0"/>
+        <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="30" Height="30" Padding="0">
+            <material:PackIcon Kind="Menu" Foreground="#FF313131"/>
+        </Button>
+        <Grid x:Name="GridMenu" Width="260" HorizontalAlignment="Left" Margin="-260 0 0 0" Background="White" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <StackPanel>
+                <Image Height="160" Stretch="Fill" Source="cameralogo.jpg"></Image>
+                <ListView x:Name="ListMainMenu" Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18" SelectionMode="Single" SelectionChanged="ListMainMenu_SelectionChanged">
+                    <ListViewItem Height="45" Padding="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <material:PackIcon Kind="SecurityHome" Width="20" Height="20" Foreground="Orange" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Главная" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <material:PackIcon Kind="SecurityCamera" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Видеонаблюдение" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <material:PackIcon Kind="FileVideo" Width="20" Height="20" Foreground="Green" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Видеозаписи" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+            <Button x:Name="ButtonClose" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="30" Height="30" Padding="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="close_icon_big.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <Grid x:Name="MainGrid" Margin="35,0,0,0" Visibility="Visible">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <TabControl HorizontalAlignment="Stretch">
+                <TabItem Header="Камеры">
+                    <Grid x:Name="DefGrid" ShowGridLines="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="CamersScreen" Grid.Column="0" ShowGridLines="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <WPF:VideoCapture x:Name="Cam1_Cap" Grid.Row="0" Grid.Column="0" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam1_Cap_PreviewMouseLeftButtonDown"/>
+                            <ComboBox x:Name="Cam1Combo" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam1Combo_DropDownClosed"/>
+                            <WPF:VideoCapture x:Name="Cam2_Cap" Grid.Row="0" Grid.Column="1" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam2_Cap_PreviewMouseLeftButtonDown"></WPF:VideoCapture>
+                            <ComboBox x:Name="Cam2Combo" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam2Combo_DropDownClosed"/>
+                            <WPF:VideoCapture x:Name="Cam3_Cap" Grid.Row="0" Grid.Column="2" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam3_Cap_PreviewMouseLeftButtonDown"></WPF:VideoCapture>
+                            <ComboBox x:Name="Cam3Combo" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam3Combo_DropDownClosed"/>
+                            <WPF:VideoCapture x:Name="Cam4_Cap" Grid.Row="1" Grid.Column="0" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam4_Cap_PreviewMouseLeftButtonDown"></WPF:VideoCapture>
+                            <ComboBox x:Name="Cam4Combo" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam4Combo_DropDownClosed"></ComboBox>
+                            <WPF:VideoCapture x:Name="Cam5_Cap" Grid.Row="1" Grid.Column="1" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam5_Cap_PreviewMouseLeftButtonDown"></WPF:VideoCapture>
+                            <ComboBox x:Name="Cam5Combo" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam5Combo_DropDownClosed"></ComboBox>
+                            <WPF:VideoCapture x:Name="Cam6_Cap" Grid.Row="1" Grid.Column="2" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam6_Cap_PreviewMouseLeftButtonDown"></WPF:VideoCapture>
+                            <ComboBox x:Name="Cam6Combo" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam6Combo_DropDownClosed"></ComboBox>
+                            <WPF:VideoCapture x:Name="Cam7_Cap" Grid.Row="2" Grid.Column="0" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam7_Cap_PreviewMouseLeftButtonDown"></WPF:VideoCapture>
+                            <ComboBox x:Name="Cam7Combo" Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam7Combo_DropDownClosed"></ComboBox>
+                            <WPF:VideoCapture x:Name="Cam8_Cap" Grid.Row="2" Grid.Column="1" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam8_Cap_PreviewMouseLeftButtonDown"></WPF:VideoCapture>
+                            <ComboBox x:Name="Cam8Combo" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam8Combo_DropDownClosed"></ComboBox>
+                            <WPF:VideoCapture x:Name="Cam9_Cap" Grid.Row="2" Grid.Column="2" Background="Black" Margin="0 0 0 25" PreviewMouseLeftButtonDown="Cam9_Cap_PreviewMouseLeftButtonDown"></WPF:VideoCapture>
+                            <ComboBox x:Name="Cam9Combo" Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Height="25" FontSize="10" DropDownClosed="Cam9Combo_DropDownClosed"></ComboBox>
+                        </Grid>
+                        <Grid x:Name="MainCam" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <WPF:VideoCapture x:Name="VideoCamMain" Grid.Column="0" Background="Black" Margin="0 0 0 60"></WPF:VideoCapture>
+                            <Button x:Name="OnloadCamsOnMainScreenBut" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Выключить камеры" Height="25" Margin="10 0 0 -0.4" Width="202" Foreground="White" Click="OnloadCamsOnMainScreenBut_Click"></Button>
+                            <Button x:Name="ScreenMainCam" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Сделать скриншот" Height="25" Margin="0 0 0 30" Width="202" Foreground="White" Click="ScreenMainCam_Click"></Button>
+                            <Button x:Name="LoadAllCams" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Включить камеры" Height="25" Width="202" Margin="010 0 0 30" Click="LoadAllCams_Click" Foreground="White"></Button>
+                            <Button x:Name="OnLoadMainVideoCap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Выключить глав.камеру" Height="25" Margin="0,0,0,-0.4" Width="202" Foreground="White" Click="OnLoadMainVideoCap_Click"></Button>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Настройка камер">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <WPF:VideoCapture Background="Black" x:Name="VideoCapture1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="600 0 0 215" OnError="VideoCapture1_OnError" Video_Effects_GPU_Engine="DirectX9"/>
+                        <ListBox x:Name="ListBoxCameras_SettingVideo" ScrollViewer.HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Top" Height="300" Width="366" SelectionChanged="ListBoxCameras_SettingVideo_SelectionChanged" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                                        <Image Width="50" Height="50" Margin="5" VerticalAlignment="Center" Source="security.jpg"/>
+                                        <TextBlock Text="Название -" Margin="10 20 0 0" FontSize="14" FontWeight="Bold" />
+                                        <TextBlock Text="{Binding Name}" Margin="10 20 0 0" FontSize="14" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button x:Name="OpenPanelSelectDateDeleteB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="371,0,0,0" Height="30" Width="30" Click="OpenPanelSelectDateDeleteB_Click" BorderBrush="{x:Null}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Settings_menu.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="SaveVideoEffectsBut" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 730 180" Content="Сохранить параметры" Foreground="White" Click="SaveVideoSettingsBut_Click"></Button>
+                        <Button x:Name="CamLoadonSetting" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 200 180" Content="Включить камеру" Foreground="White" Click="CamLoadonSettings_Click"></Button>
+                        <Button x:Name="CamunLoadonScreen" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 550 180" Content="Сделать скриншот" Foreground="White" Click="CamunLoadonScreen_Click"></Button>
+                        <Button x:Name="CamunLoadonSetting" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 370 180" Content="Выключить камеру" Foreground="White" Click="CamunLoadonSetting_Click"></Button>
+                        <TabControl x:Name="TabVideoSet" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="163" Margin="0,0,-0.2,-0.4" RenderTransformOrigin="0.5,0.5">
+                            <TabControl.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TabControl.RenderTransform>
+                            <TabItem Header="Ввод">
+                                <Grid>
+                                    <TextBlock Text="Видео движок" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 5 0 0"></TextBlock>
+                                    <ComboBox Height="26" Name="IPCameraType" VerticalAlignment="Top" Width="209" HorizontalAlignment="Left" Margin="107,-1,0,0" SelectedIndex="0">
+                                        <ComboBoxItem Content="Auto (VLC engine)" />
+                                        <ComboBoxItem Content="Auto (FFMPEG engine)" />
+                                        <ComboBoxItem Content="Auto (LAV engine)" />
+                                        <ComboBoxItem Content="RTSP (Live555 engine)" />
+                                        <ComboBoxItem Content="HTTP (FFMPEG engine)" />
+                                        <ComboBoxItem Content="MMS - WMV" />
+                                        <ComboBoxItem Content="RTSP - UDP (FFMPEG engine)" />
+                                        <ComboBoxItem Content="RTSP - TCP (FFMPEG engine)" />
+                                        <ComboBoxItem Content="RTSP over HTTP (FFMPEG engine)" />
+                                        <ComboBoxItem Content="HTTP MJPEG Low Latency"/>
+                                    </ComboBox>
+                                    <CheckBox x:Name="StretchCheck" Content="Расширить видео на всю область" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400 5 0 0"></CheckBox>
+                                    <CheckBox x:Name="AudioExCheck" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Аудиопоток есть" Margin="0,41,0,0"></CheckBox>
+                                    <TextBlock Text="Громкость:" Margin="0 65 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"></TextBlock>
+                                    <Slider x:Name="SoundOnSetter" Maximum="100" Margin="0 80 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" ValueChanged="SoundOnSetter_ValueChanged"></Slider>
+                                    <CheckBox x:Name="VideoRecordTestCheck" Content="Записывать тестовое видео" Margin="0 100 0 0" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Вывод">
+                                <Grid>
+                                    <TextBlock Text="Формат вывода:" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+                                    <ComboBox Height="28" Margin="0,16,0,0" x:Name="OutputFormat" VerticalAlignment="Top" HorizontalAlignment="Left" Width="323" SelectedIndex="0">
+                                        <ComboBoxItem Content="AVI" />
+                                        <ComboBoxItem Content="MKV (Matroska)" />
+                                        <ComboBoxItem Content="WMV (Windows Media Video)" />
+                                        <ComboBoxItem Content="MP4 v8/v10" />
+                                        <ComboBoxItem Content="MP4 v11" />
+                                    </ComboBox>
+                                    <TextBlock Text="Путь вывода:" Margin="0 50 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"></TextBlock>
+                                    <TextBox x:Name="PathOutput" Width="272" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 60 0 0" IsReadOnly="True"></TextBox>
+                                    <Button x:Name="EditPathBut" Width="97" Height="25" HorizontalAlignment="Left" Content="Выбрать" VerticalAlignment="Top" Margin="277,60,0,0" Foreground="White" Click="EditPathBut_Click"></Button>
+                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Начинать запись нового видео через:" Margin="0 0 0 -90"></TextBlock>
+                                    <material:TimePicker  x:Name="TimeOutput" Margin="250 100 0 0" HorizontalAlignment="Left" Width="250" VerticalAlignment="Top" Is24Hours="True" IsInvalidTextAllowed="False"/>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Видео эффекты">
+                                <Grid>
+                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Яркость:"></TextBlock>
+                                    <Slider x:Name="SliderLightness" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 20" Minimum="0" Maximum="255" Width="200" SmallChange="1" ValueChanged="SliderLightness_ValueChanged"></Slider>
+                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Контрастность:" Margin="0 40"></TextBlock>
+                                    <Slider x:Name="SliderContrast" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,60,0,0" Minimum="0" Maximum="255" Width="200" Height="30" ValueChanged="SliderContrast_ValueChanged"></Slider>
+                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Насыщенность:" Margin="250 0"></TextBlock>
+                                    <Slider x:Name="SliderSaturation" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="250 20" Minimum="0" Maximum="255" Width="200" ValueChanged="SliderSaturation_ValueChanged"></Slider>
+                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Затемнённость:" Margin="250 40"></TextBlock>
+                                    <Slider x:Name="SliderDarkness" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="250,60,0,0" Minimum="0" Maximum="255" Width="200" Height="30" ValueChanged="SliderDarkness_ValueChanged"></Slider>
+                                    <CheckBox Name="GreyscaleCheckBox" Content="Режим |Черное-Белое|" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,100,0,0" Height="25" Width="160" Click="GreyscaleCheckBox_Click"></CheckBox>
+                                    <CheckBox Name="InvertCheckBox" Content="Инвертирование" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,100,0,0" Height="25" Width="142" Click="InvertCheckBox_Click"></CheckBox>
+                                    <CheckBox Name="FlipXCheckBox" Content="Отразить по X" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,100,0,0" Height="25" Width="160" Click="FlipXCheckBox_Click"/>
+                                    <CheckBox Name="FlipYCheckBox" Content="Отразить по Y" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="450,100,0,0" Height="25" Width="160" Click="FlipYCheckBox_Click"/>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Детектор движения">
+                                <ScrollViewer>
+                                    <Grid>
+                                        <CheckBox x:Name="MotionDetect" Content="Активировать" HorizontalAlignment="Left" VerticalAlignment="Top" Click="SelectDetectionMod_Click"></CheckBox>
+                                        <GroupBox Header="Цветовая подсветка" Margin="0 20 0 0">
+                                            <Grid>
+                                                <CheckBox x:Name="HightLight" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Включить"></CheckBox>
+                                                <Slider Height="23" HorizontalAlignment="Left" Margin="0,47,0,0" Maximum="255" x:Name="tbMotDetHLThreshold" VerticalAlignment="Top" Width="100" Value="5" />
+                                                <Label Content="Порог (Threshold)" Height="22" HorizontalAlignment="Left" Margin="0,18,0,0" x:Name="label162" VerticalAlignment="Top" Width="122" />
+                                                <Label Content="Цвет" Height="22" HorizontalAlignment="Left" Margin="195,18,0,0" x:Name="label163" VerticalAlignment="Top" Width="81" />
+                                                <ComboBox x:Name="ComboColorHightLight"  Height="27" HorizontalAlignment="Left" Margin="195,37,0,0" VerticalAlignment="Top" Width="122">
+                                                    <ComboBoxItem Content="Красный" />
+                                                    <ComboBoxItem Content="Зелёный" />
+                                                    <ComboBoxItem Content="Синий" />
+                                                </ComboBox>
+                                            </Grid>
+                                        </GroupBox>
+                                        <GroupBox Margin="0 150 0 0" Header="Настройки сравнения (сравнить с)">
+                                            <Grid>
+                                                <CheckBox Content="Красный" Height="16" HorizontalAlignment="Left" Margin="30,20,0,0" x:Name="cbCompareRed" VerticalAlignment="Top" />
+                                                <CheckBox Content="Зелёный" Height="16" HorizontalAlignment="Left" Margin="110,20,0,0" x:Name="cbCompareGreen" VerticalAlignment="Top" />
+                                                <CheckBox Content="Синий" Height="16" HorizontalAlignment="Left" Margin="190,20,0,0" x:Name="cbCompareBlue" VerticalAlignment="Top" />
+                                                <CheckBox Content="Оттенки серого" Height="16" HorizontalAlignment="Left" Margin="270,20,0,0" x:Name="cbCompareGreyscale" VerticalAlignment="Top" IsChecked="True" />
+                                                <Label Content="Интервал кадров" Height="30" HorizontalAlignment="Left" Margin="70,52,0,0" x:Name="label161" VerticalAlignment="Top" Width="120" />
+                                                <TextBox Height="23" HorizontalAlignment="Left" Margin="225,54,0,0" x:Name="edMotDetFrameInterval" VerticalAlignment="Top" Width="50" Text="5" PreviewTextInput="edMotDetFrameInterval_PreviewTextInput" />
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="Детектор движения (продвинутый)">
+                                <ScrollViewer>
+                                    <Grid>
+                                        <CheckBox x:Name="MotionDetectEx" Content="Активировать" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MotionDetectEx_Click"></CheckBox>
+                                        <GroupBox Header="Настройка" Margin="0 20 0 0">
+                                            <Grid>
+                                                <Label Content="Детектор" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                                                <ComboBox x:Name="MotionDetectionExDetector" HorizontalAlignment="Left" Margin="0 20 0 0" VerticalAlignment="Top" Width="308" SelectedIndex="0">
+                                                    <ComboBoxItem Content="Разница двух кадров"/>
+                                                    <ComboBoxItem Content="Пользовательская разница кадров"/>
+                                                    <ComboBoxItem Content="Простое фоновое моделирование"/>
+                                                </ComboBox>
+                                                <Label Content="Процессор" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 50 0 0"></Label>
+                                                <ComboBox x:Name="MotionDetectionExProcessor" HorizontalAlignment="Left" Margin="0 80 0 0" VerticalAlignment="Top" Width="308" SelectedIndex="0">
+                                                    <ComboBoxItem Content="Нету"/>
+                                                    <ComboBoxItem Content="Blob подсчета объектов"/>
+                                                    <ComboBoxItem Content="Обработка области движения сетки"/>
+                                                    <ComboBoxItem Content="Подсветка области движения"/>
+                                                    <ComboBoxItem Content="Подсветка границ движения"/>
+                                                </ComboBox>
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="Логи об ошибках">
+                                <Grid>
+                                    <toolkit:RichTextBox x:Name="LogsRich" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"></toolkit:RichTextBox>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid x:Name="GridSelectSettingDeleteFiles" Background="LightSteelBlue" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="124"  Width="300" Margin="0 60 0 0" Visibility="Collapsed">
+            <Button x:Name="ClosePaneSelectDaysToFileDelete" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="8" Height="25" Width="25" Margin="0 2 2 0" BorderBrush="{x:Null}" Click="ClosePaneSelectDaysToFileDelete_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="close_icon_small.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Настройка удаления файлов" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="White" BorderThickness="1 1 1 1" Margin="10,0,0,0"></Label>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0">Укажите максимальный срок хранения<LineBreak/>видеофайлов в днях
+            </TextBlock>
+            <toolkit:IntegerUpDown x:Name="DaysScroll" HorizontalAlignment="Left" VerticalAlignment="Bottom" Minimum="1" Maximum="90" Margin="10,0,0,39" Width="73" AllowTextInput="False"></toolkit:IntegerUpDown>
+            <Button x:Name="ApplyDaysBut" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 3" Height="25" Content="Применить" Background="White" Click="ApplyDaysBut_Click"></Button>
+        </Grid>
+        <Grid x:Name="ContentCams" HorizontalAlignment="Stretch" Margin="35 0 0 0" Visibility="Collapsed">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <TabControl>
+                <TabItem Header="Список камер">
+                    <Grid>
+                        <Button x:Name="AddMenuCamBut" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Content="Добавить камеру" Foreground="White" Click="OpenAdderCamsGrid_Click"/>
+                        <Button x:Name="ChangeMenuCamBut" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Content="Изменить" Foreground="White" Click="OpenEditorCamsGrid_Click" Margin="160 0"/>
+                        <Button x:Name="DeleteMenuCamBut" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Content="Удалить" Foreground="White" Click="DellCam_Click" Margin="270 0"/>
+                        <ListBox x:Name="ListBoxCameras" ScrollViewer.HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Stretch" Margin="0 30 10 0" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                                        <Image Width="50" Height="50" Margin="5" VerticalAlignment="Center" Source="security.jpg"/>
+                                        <TextBlock Text="Название -" Margin="10 20 0 0"/>
+                                        <TextBlock Text="{Binding Name}" Margin="10 20 0 0"/>
+                                        <TextBlock Text="Строка подключения -" Margin="10 20 0 0"/>
+                                        <TextBlock Text="{Binding ConnectString}" Margin="10 20 0 0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Настройка вида (расположения) камер">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Source="Вид1.png" Margin="0 0 120 20" Grid.Row="0" HorizontalAlignment="Left"></Image>
+                        <RadioButton x:Name="ViewOne" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Первый вид" Margin="0 0 300 0" Grid.Row="0" Click="View_Click"></RadioButton>
+                        <Image Source="Вид2.png" Margin="0 20 120 0" Grid.Row="1" HorizontalAlignment="Left"></Image>
+                        <RadioButton x:Name="ViewTwo" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Второй вид" Margin="0 0 300 0" Grid.Row="1" Click="View_Click"></RadioButton>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid x:Name="AdderAndEditorCamsGrid" Margin="0 0 0 0" Background="CadetBlue"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="400" Width="450" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="CloseAdderAndEditorGrid" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="25" Width="25" Margin="0 2 2 0" Click="CloseAdderAndEditorGrid_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="close_icon_big.png"/>
+                </Button.Background>
+            </Button>
+            <Grid x:Name="AdderOrEdditerCams" Margin="30" Background="White">
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="Работа с данными камеры" FontSize="16" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="10 30 0 00" Text="Название камеры:" Height="20"/>
+                <TextBox x:Name="CamName" HorizontalAlignment="Center" VerticalAlignment="Center" Width="252" Margin="128,25,9.6,290" MaxLength="30"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Width="130" Margin="10,74,0,242" Text="Строка подключения:" Height="24"/>
+                <TextBox x:Name="CamString" HorizontalAlignment="Center" VerticalAlignment="Center" Width="233" Margin="145,69,11.6,247" MaxLength="100" PreviewKeyDown="NotEnabledSpace"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Width="400" Height="24" Text="Дополнительные данные (необязательны для заполнения)" Foreground="Red" Margin="10,192,-20.4,124"></TextBlock>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Логин:" Margin="7,225,0,99"></TextBlock>
+                <TextBox x:Name="Login" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="59,221,0,94" MaxLength="40"></TextBox>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Пароль:" Margin="7,255,0,69"></TextBlock>
+                <TextBox x:Name="Password" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="59,251,0,64" MaxLength="60"></TextBox>
+                <Button x:Name="AddCam" VerticalAlignment="Bottom" Content="Добавить"  HorizontalAlignment="Center" Margin="0 0 0 10" Foreground="White" Click="AddCam_Click"/>
+                <Button x:Name="EditCam" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Изменить" Margin="0 0 0 10" Foreground="White" Click="EditCam_Click"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Width="52" Margin="10,113,0,203" Text="Ip адрес:" Height="24"/>
+                <TextBox x:Name="IpText" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Margin="67,109,162.6,203" Height="28" PreviewTextInput="IpText_PreviewTextInput"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Width="36" Margin="10,153,0,163" Text="Port:" Height="24"/>
+                <toolkit:MaskedTextBox x:Name="PortText" HorizontalAlignment="Center" VerticalAlignment="Center" Width="48" Margin="51,152,290.6,170" MaxLength="100" Mask="99999"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="ContentVideoGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="35 0 0 0" Visibility="Collapsed">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <TabControl x:Name="VideoSection">
+                <TabItem Header="Видео файлы">
+                    <Grid>
+                        <Label Content="Камера:" Margin="0 5 0 0"></Label>
+                        <Button x:Name="DeleteVideoFile" Content="Удалить" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" Height="25" Background="Red" Margin="0 5 0 0" Click="DeleteVideoFile_Click"/>
+                        <ComboBox x:Name="NameCamOnVideoPL" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100 0 0 0" Width="201" DropDownClosed="NameCamOnVideoPL_DropDownClosed"/>
+                        <Label x:Name="SeeToDate" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Дата"  Margin="350 5 0 0"></Label>
+                        <DatePicker x:Name="DateSelectFiles" VerticalAlignment="Top" HorizontalAlignment="Left" Width="187" CalendarClosed="DateSelectFiles_CalendarClosed" Margin="400 5 0 0"></DatePicker>
+                        <ListBox x:Name="ListBoxVideo" ScrollViewer.HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Stretch" Margin="0 30 10 0" MouseDoubleClick="ListBoxVideo_MouseDoubleClick" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                                        <Image Width="50" Height="50" Margin="5" VerticalAlignment="Center" Source="video.png"/>
+                                        <TextBlock Text="Название -" Margin="10 20 0 0"/>
+                                        <TextBlock Text="{Binding Name}" Margin="10 20 0 0"/>
+                                        <TextBlock Text="Формат -" Margin="10 20 0 0"/>
+                                        <TextBlock Text="{Binding VideoFormat}" Margin="10 20 0 0"/>
+                                        <TextBlock Text="Продолжительность -" Margin="10 20 0 0"/>
+                                        <TextBlock Text="{Binding TimeVideo}" Margin="10 20 0 0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Медиа плеер">
+                    <Grid>
+                        <Border x:Name="VideoBorder" Background="LightSkyBlue" Margin="0 0 0 196">
+                            <Grid>
+                                <MediaElement x:Name="VideoPlayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MediaOpened="VideoPlayer_MediaOpened" Stretch="Fill" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaFailed="VideoPlayer_MediaFailed"/>
+                                <Slider x:Name="LineMedia" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Foreground="#FFE8E8E8" ValueChanged="LineMedia_ValueChanged"></Slider>
+                                <Label x:Name="DurationLabel" Content="" Margin="0 0 0 10" Width="80" Foreground="#DDFFFFFF" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                            </Grid>
+                        </Border>
+                        <GroupBox x:Name="PlayerPanel" Header="Управление плеером" VerticalAlignment="Bottom" Opacity="1" Visibility="Visible">
+                            <ScrollViewer>
+                                <Grid>
+                                    <Button x:Name="StartMedia" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 0 0 0" Width="30" Height="30"  Foreground="White" Click="StartMedia_Click" BorderBrush="{x:Null}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="Play.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button x:Name="StopMedia" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Выключить" Margin="40 0 0 0" Foreground="White" Width="30" Height="30" Click="StopMedia_Click" BorderBrush="{x:Null}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="Stop.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button x:Name="ResumeMedia" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Продолжить" Margin="120 0 0 0" Foreground="White" Click="ResumeMedia_Click" Width="30" Height="30" BorderBrush="{x:Null}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="Resume.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button x:Name="BackMedia" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Продолжить" Margin="170 0 0 0" Foreground="White" Click="BackMedia_Click" Width="30" Height="30" BorderBrush="{x:Null}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="Back.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button x:Name="NextMedia" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Продолжить" Margin="210 0 0 0" Foreground="White" Click="NextMedia_Click" Width="30" Height="30" BorderBrush="{x:Null}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="Next.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button x:Name="PauseMedia" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Пауза" Margin="80 0 0 0" Foreground="White" Width="30" Height="30" Click="PauseMedia_Click" BorderBrush="{x:Null}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="Pause.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button x:Name="ClosePlayerPanel" VerticalAlignment="Top" Background="White" HorizontalAlignment="Right" Content="Закрыть панель" Margin="0 0 0 0" Foreground="GreenYellow" Click="ClosePlayerPanel_Click"></Button>
+                                    <Label Content="Громкость:" Margin="0 36 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                                    <Slider x:Name="VolumeSliderVideoPl" Minimum="0" Maximum="100" Margin="125 41 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" ValueChanged="VolumeSliderVideoPl_ValueChanged"></Slider>
+                                    <Label Content="Скорость:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 60 0 0"></Label>
+                                    <Slider x:Name="SpeedPlayer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,64,0,0" Width="100" Minimum="0.1" Maximum="5" ValueChanged="SpeedPlayer_ValueChanged" Value="0.1"></Slider>
+                                    <Label Content="Режим масштабирования видео:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 80 0 0"></Label>
+                                    <ComboBox x:Name="StretchModePlayerCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,78,0,0" Width="150" SelectedIndex="0" SelectionChanged="StretchModePlayerCombo_SelectionChanged">
+                                        <ComboBoxItem>Нету</ComboBoxItem>
+                                        <ComboBoxItem>Полностью</ComboBoxItem>
+                                        <ComboBoxItem>Без сохранения пропорций</ComboBoxItem>
+                                        <ComboBoxItem>С сохранением пропорций</ComboBoxItem>
+                                    </ComboBox>
+                                    <Button x:Name="HelpCombo1" VerticalAlignment="Top" Content="?" HorizontalAlignment="Left" Margin="380,75,0,0" Foreground="White" Click="HelpCombo1_Click"></Button>
+                                    <Label Content="Направление масштабирования видео:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 110 0 0"></Label>
+                                    <ComboBox x:Name="StretchDirectPlayerCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="250 110 0 0" Width="195" SelectionChanged="StretchDirectPlayerCombo_SelectionChanged">
+                                        <ComboBoxItem>И то и другое</ComboBoxItem>
+                                        <ComboBoxItem>Только вниз</ComboBoxItem>
+                                        <ComboBoxItem>Только вверх</ComboBoxItem>
+                                    </ComboBox>
+                                    <Button x:Name="HelpCombo2" VerticalAlignment="Top" Content="?" HorizontalAlignment="Left" Margin="460 110 0 0" Foreground="White" Click="HelpCombo2_Click"></Button>
+                                </Grid>
+                            </ScrollViewer>
+                        </GroupBox>
+                        <Button x:Name="VideoPanelOpenButton" Visibility="Collapsed" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Content="Открыть панель" Click="VideoPanelOpenButton_Click" Foreground="White"></Button>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>

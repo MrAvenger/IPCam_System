@@ -1,0 +1,401 @@
+<?xml version="1.0"?>
+<Camers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CamersList>
+    <Camera>
+      <Name>Камера 1</Name>
+      <ConnectString>http://162.245.149.145/mjpg/video.mjpg</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:29</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>true</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>162.245.149.145</Ip>
+      <Port>80</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Камера 2</Name>
+      <ConnectString>http://66.57.117.166:8000/mjpg/video.mjpg</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>true</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>66.57.117.166</Ip>
+      <Port>8000</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Камера 3</Name>
+      <ConnectString>http://176.180.45.18:8082/mjpg/video.mjpg</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>true</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>176.180.45.18</Ip>
+      <Port>8082</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Камера 4</Name>
+      <ConnectString>http://24.197.59.198/mjpg/video.mjpg</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>true</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>24.197.59.198</Ip>
+      <Port>80</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Камера 5</Name>
+      <ConnectString>http://79.172.223.14/cgi-bin/viewer/video.jpg?r=1590592636</ConnectString>
+      <TypeCam>Auto (FFMPEG engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>true</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>79.172.223.14</Ip>
+      <Port>80</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Камера 6</Name>
+      <ConnectString>http://185.18.130.194:8001/mjpg/video.mjpg</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>false</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>185.18.130.194</Ip>
+      <Port>8001</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Камера 7</Name>
+      <ConnectString>http://92.110.122.229:8080/mjpg/video.mjpg</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>false</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>92.110.122.229</Ip>
+      <Port>8080</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Камера 8</Name>
+      <ConnectString>http://81.8.143.32/mjpg/video.mjpg</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>false</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>81.8.143.32</Ip>
+      <Port>80</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Камера 9</Name>
+      <ConnectString>http://86.87.225.145/mjpg/video.mjpg</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login />
+      <Password />
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>false</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>86.87.225.145</Ip>
+      <Port>80</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Ezwiz</Name>
+      <ConnectString>rtsp://192.168.1.67:554/</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login>admin</Login>
+      <Password>MYTLJP</Password>
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>false</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>192.168.1.67</Ip>
+      <Port>554</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+    <Camera>
+      <Name>Ezwiz2</Name>
+      <ConnectString>rtsp://192.168.1.40:554/</ConnectString>
+      <TypeCam>Auto (LAV engine)</TypeCam>
+      <Login>admin</Login>
+      <Password>YKXKYQ</Password>
+      <OutPutType>AVI</OutPutType>
+      <OutPutPath>C:\Users\Matvey\Videos</OutPutPath>
+      <OutPutTime>1:30</OutPutTime>
+      <AudioEx>false</AudioEx>
+      <Lightness>0</Lightness>
+      <Saturation>255</Saturation>
+      <Contrast>0</Contrast>
+      <Darkness>0</Darkness>
+      <Invert>false</Invert>
+      <Grayscale>false</Grayscale>
+      <FlipX>false</FlipX>
+      <FlipY>false</FlipY>
+      <Sound>100</Sound>
+      <Stretch>false</Stretch>
+      <Recordtest>false</Recordtest>
+      <Ip>192.168.1.40</Ip>
+      <Port>554</Port>
+      <MotionDecEnabled>false</MotionDecEnabled>
+      <MotionHightLightEnabled>false</MotionHightLightEnabled>
+      <MotionHightLightThres>0</MotionHightLightThres>
+      <MotionFrameLimit>2</MotionFrameLimit>
+      <MotionHightLightColor>Красный</MotionHightLightColor>
+      <MotionCompare_Red>false</MotionCompare_Red>
+      <MotionCompare_Green>false</MotionCompare_Green>
+      <MotionCompare_Blue>false</MotionCompare_Blue>
+      <MotionCompare_GrayScale>true</MotionCompare_GrayScale>
+      <MotionDetectionExEnabled>false</MotionDetectionExEnabled>
+      <MotionDetetionExDetector>Разница двух кадров</MotionDetetionExDetector>
+      <MotionDetetionExCore />
+    </Camera>
+  </CamersList>
+</Camers>
